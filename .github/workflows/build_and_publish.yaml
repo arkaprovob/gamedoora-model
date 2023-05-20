@@ -11,13 +11,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
           java-version: '17'
           distribution: 'adopt'
+
+      - name: Add execute permissions to script
+        run: chmod +x ./check-version.sh
 
       - name: Check if version exists
         id: chkvrsn
