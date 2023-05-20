@@ -19,8 +19,14 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
-      - name: Print GitHub token
-        run: echo ${{ secrets.GITHUB_TOKEN }}
+      - name: Check if version exists
+        run: ./check-version.sh
+        env:
+          PAT: ${{ secrets.PAT }}
+          USER: ${{ secrets.USER }}
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
 
       - name: Publish to GitHub Packages
         run: mvn deploy
