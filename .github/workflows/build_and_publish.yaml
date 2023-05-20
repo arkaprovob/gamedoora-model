@@ -20,6 +20,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Check if version exists
+        id: chkvrsn
         run: ./check-version.sh
         env:
           PAT: ${{ secrets.PAT }}
@@ -32,3 +33,4 @@ jobs:
         run: mvn deploy
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
+        if: ${{ steps.chkvrsn.outputs.exists == 'false' }}
