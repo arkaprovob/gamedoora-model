@@ -13,6 +13,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.wagon.http.pool>false</maven.wagon.http.pool>
+		<maven.wagon.httpconnectionManager.ttlSeconds>120</maven.wagon.httpconnectionManager.ttlSeconds>
+		<maven.wagon.http.retryHandler.count>3</maven.wagon.http.retryHandler.count>
 	</properties>
 
 	<build>
@@ -100,10 +103,15 @@
 
 	</dependencies>
 	<distributionManagement>
-	  <repository>
+<!--	  <repository>
 	    <id>codeartifact</id>
 	    <name>codeartifact</name>
 	    <url>https://gamedoora-727903310356.d.codeartifact.us-east-1.amazonaws.com/maven/Gamedoora/</url>
-	  </repository>
+	  </repository>-->
+		<repository>
+			<id>github</id>
+			<name>GitHub Arko's Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/arkaprovob/gamedoora-model</url>
+		</repository>
 </distributionManagement>
 </project>
