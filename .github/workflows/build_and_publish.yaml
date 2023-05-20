@@ -19,6 +19,9 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
+      - name: Print GitHub token
+        run: echo ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish to GitHub Packages
         run: mvn deploy
         env:
