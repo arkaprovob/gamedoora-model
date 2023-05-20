@@ -1,70 +1,59 @@
 package com.gamedoora.model.dao;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
-
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
 public class Roles extends Audit implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
+    @OneToMany(mappedBy = "roles")
+    Set<UserRole> userRole;
+    @OneToMany(mappedBy = "roles")
+    Set<RoleSkills> roleSkills;
+    @Id
+    @GeneratedValue
+    @Column(name = "id", nullable = false)
+    private long id;
+    @Basic
+    @Column(name = "role_name")
+    private String name;
+    @Basic
+    @Column(name = "role_description")
+    private String description;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id", nullable = false)
-	private long id;
+    public long getId() {
+        return id;
+    }
 
-	@Basic
-	@Column(name = "role_name")
-	private String name;
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	@Basic
-	@Column(name = "role_description")
-	private String description;
+    public String getName() {
+        return name;
+    }
 
-	@OneToMany(mappedBy = "roles")
-	Set<UserRole> userRole;
-	
-	@OneToMany(mappedBy = "roles")
-	Set<RoleSkills> roleSkills;
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public long getId() {
-		return id;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Set<UserRole> getUserRole() {
+        return userRole;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Set<UserRole> getUserRole() {
-		return userRole;
-	}
-
-	public void setUserRole(Set<UserRole> userRole) {
-		this.userRole = userRole;
-	}
+    public void setUserRole(Set<UserRole> userRole) {
+        this.userRole = userRole;
+    }
 
 }

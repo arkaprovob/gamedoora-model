@@ -1,229 +1,220 @@
 package com.gamedoora.model.dao;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Users extends Audit implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id", nullable = false)
-	long id;
+    @Id
+    @GeneratedValue
+    @Column(name = "id", nullable = false)
+    long id;
 
-	@Column(name = "provider_token", nullable = false)
-	String providerToken;
+    @Column(name = "provider_token", nullable = false)
+    String providerToken;
 
-	@Column(name = "email", nullable = false)
-	String email;
+    @Column(name = "email", nullable = false)
+    String email;
 
-	@Column(name = "first_name")
-	String firstName;
+    @Column(name = "first_name")
+    String firstName;
 
-	@Column(name = "last_name")
-	String lastName;
+    @Column(name = "last_name")
+    String lastName;
 
-	@Column(name = "provider_id")
-	long providerId;
+    @Column(name = "provider_id")
+    long providerId;
 
-	@Column(name = "password")
-	String password;
+    @Column(name = "password")
+    String password;
 
-	@Column(name = "sign_in_count")
-	int signInCount;
+    @Column(name = "sign_in_count")
+    int signInCount;
 
-	@Column(name = "session_token")
-	String sessionToken;
+    @Column(name = "session_token")
+    String sessionToken;
 
-	@Column(name = "reset_password_token")
-	String resetPasswordToken;
+    @Column(name = "reset_password_token")
+    String resetPasswordToken;
 
-	@Column(name = "photo_url")
-	String photoUrl;
+    @Column(name = "photo_url")
+    String photoUrl;
 
-	@Column(name = "phone_number")
-	String phoneNumber;
+    @Column(name = "phone_number")
+    String phoneNumber;
 
-	@Column(name = "last_sign_in")
-	@Temporal(TemporalType.TIMESTAMP)
-	Date lastSignIn;
+    @Column(name = "last_sign_in")
+    @Temporal(TemporalType.TIMESTAMP)
+    Date lastSignIn;
 
-	@Column(name = "last_sign_ip")
-	String lastSignIp;
+    @Column(name = "last_sign_ip")
+    String lastSignIp;
 
-	@Column(name = "current_sign_ip")
-	String currentSignIp;
+    @Column(name = "current_sign_ip")
+    String currentSignIp;
 
-	@Column(name = "current_sign_in")
-	@Temporal(TemporalType.TIMESTAMP)
-	Date currentSignIn;
+    @Column(name = "current_sign_in")
+    @Temporal(TemporalType.TIMESTAMP)
+    Date currentSignIn;
 
-	@OneToMany(mappedBy = "users")
-	Set<UserRole> userRole;
+    @OneToMany(mappedBy = "users")
+    Set<UserRole> userRole;
 
-	@OneToMany(mappedBy = "users")
-	Set<UserSkills> userSkills;
+    @OneToMany(mappedBy = "users")
+    Set<UserSkills> userSkills;
 
-	public long getId() {
-		return id;
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public String getProviderToken() {
-		return providerToken;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public void setProviderToken(String providerToken) {
-		this.providerToken = providerToken;
-	}
+    public String getProviderToken() {
+        return providerToken;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setProviderToken(String providerToken) {
+        this.providerToken = providerToken;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public long getProviderId() {
-		return providerId;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setProviderId(long providerId) {
-		this.providerId = providerId;
-	}
+    public long getProviderId() {
+        return providerId;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setProviderId(long providerId) {
+        this.providerId = providerId;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public int getSignInCount() {
-		return signInCount;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setSignInCount(int signInCount) {
-		this.signInCount = signInCount;
-	}
+    public int getSignInCount() {
+        return signInCount;
+    }
 
-	public String getSessionToken() {
-		return sessionToken;
-	}
+    public void setSignInCount(int signInCount) {
+        this.signInCount = signInCount;
+    }
 
-	public void setSessionToken(String sessionToken) {
-		this.sessionToken = sessionToken;
-	}
+    public String getSessionToken() {
+        return sessionToken;
+    }
 
-	public String getResetPasswordToken() {
-		return resetPasswordToken;
-	}
+    public void setSessionToken(String sessionToken) {
+        this.sessionToken = sessionToken;
+    }
 
-	public void setResetPasswordToken(String resetPasswordToken) {
-		this.resetPasswordToken = resetPasswordToken;
-	}
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
 
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
+    }
 
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
-	}
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public Date getLastSignIn() {
-		return lastSignIn;
-	}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-	public void setLastSignIn(Date lastSignIn) {
-		this.lastSignIn = lastSignIn;
-	}
+    public Date getLastSignIn() {
+        return lastSignIn;
+    }
 
-	public String getLastSignIp() {
-		return lastSignIp;
-	}
+    public void setLastSignIn(Date lastSignIn) {
+        this.lastSignIn = lastSignIn;
+    }
 
-	public void setLastSignIp(String lastSignIp) {
-		this.lastSignIp = lastSignIp;
-	}
+    public String getLastSignIp() {
+        return lastSignIp;
+    }
 
-	public String getCurrentSignIp() {
-		return currentSignIp;
-	}
+    public void setLastSignIp(String lastSignIp) {
+        this.lastSignIp = lastSignIp;
+    }
 
-	public void setCurrentSignIp(String currentSignIp) {
-		this.currentSignIp = currentSignIp;
-	}
+    public String getCurrentSignIp() {
+        return currentSignIp;
+    }
 
-	public Date getCurrentSignIn() {
-		return currentSignIn;
-	}
+    public void setCurrentSignIp(String currentSignIp) {
+        this.currentSignIp = currentSignIp;
+    }
 
-	public void setCurrentSignIn(Date currentSignIn) {
-		this.currentSignIn = currentSignIn;
-	}
+    public Date getCurrentSignIn() {
+        return currentSignIn;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public void setCurrentSignIn(Date currentSignIn) {
+        this.currentSignIn = currentSignIn;
+    }
 
-	public Set<UserRole> getUserRole() {
-		return userRole;
-	}
+    public Set<UserRole> getUserRole() {
+        return userRole;
+    }
 
-	public void setUserRole(Set<UserRole> userRole) {
-		this.userRole = userRole;
-	}
+    public void setUserRole(Set<UserRole> userRole) {
+        this.userRole = userRole;
+    }
 
-	public Set<UserSkills> getUserSkills() {
-		return userSkills;
-	}
+    public Set<UserSkills> getUserSkills() {
+        return userSkills;
+    }
 
-	public void setUserSkills(Set<UserSkills> userSkills) {
-		this.userSkills = userSkills;
-	}
+    public void setUserSkills(Set<UserSkills> userSkills) {
+        this.userSkills = userSkills;
+    }
 
 }

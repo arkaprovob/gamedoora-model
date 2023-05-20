@@ -1,69 +1,68 @@
 package com.gamedoora.model.dao;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.util.Date;
 
 public class Audit {
 
-	@Column(name = "created_by", updatable = false)
-	private String createdBy;
+    @Column(name = "created_by", updatable = false)
+    private String createdBy;
 
-	@Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
 
-	@Column(name = "created_on", updatable = false)
-	private Date createdOn;
+    @Column(name = "created_on", updatable = false)
+    private Date createdOn;
 
-	@Column(name = "update_by")
-	private String updateBy;
+    @Column(name = "update_by")
+    private String updateBy;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "update_on", updatable = false)
-	private Date updateOn;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "update_on", updatable = false)
+    private Date updateOn;
 
-	@Column(name = "active")
-	private boolean active;
+    @Column(name = "active")
+    private boolean active;
 
-	public String getCreatedBy() {
-		return createdBy;
-	}
+    public String getCreatedBy() {
+        return createdBy;
+    }
 
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
 
-	public Date getCreatedOn() {
-		return createdOn;
-	}
+    public Date getCreatedOn() {
+        return createdOn;
+    }
 
-	public void setCreatedOn(Date createdOn) {
-		this.createdOn = createdOn;
-	}
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
 
-	public String getUpdateBy() {
-		return updateBy;
-	}
+    public String getUpdateBy() {
+        return updateBy;
+    }
 
-	public void setUpdateBy(String updateBy) {
-		this.updateBy = updateBy;
-	}
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy;
+    }
 
-	public Date getUpdateOn() {
-		return updateOn;
-	}
+    public Date getUpdateOn() {
+        return updateOn;
+    }
 
-	public void setUpdateOn(Date updateOn) {
-		this.updateOn = updateOn;
-	}
+    public void setUpdateOn(Date updateOn) {
+        this.updateOn = updateOn;
+    }
 
-	public boolean isActive() {
-		return active;
-	}
+    public boolean isActive() {
+        return active;
+    }
 
-	public void setActive(boolean active) {
-		this.active = active;
-	}
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
 }
